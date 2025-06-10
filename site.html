@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Özeltaş Hırdavat & Mezar Taşı</title>
+  <style>
+    /* Reset & temel stiller */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #e67e22;
+    }
+    
+    main {
+      flex: 1;
+      padding: 30px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+      color: white;
+      border-radius: 10px;
+      padding: 50px 30px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .hero h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.5;
+    }
+
+    /* 3D Model Container */
+    #model-viewer-container {
+      width: 100%;
+      max-width: 700px;
+      height: 500px;
+      margin: 50px auto 70px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      background: white;
+    }
+
+    /* Ürünler Bölümü */
+    .products-section {
+      margin-top: 30px;
+    }
+    .products-section h3 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #2c3e50;
+      border-bottom: 3px solid #e67e22;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid #e67e22;
+    }
+    .product-info {
+      padding: 15px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-info h4 {
+      color: #2c3e50;
+      margin-bottom: 12px;
+    }
+    .product-info p {
+      font-size: 0.95rem;
+      flex-grow: 1;
+      color: #555;
+    }
+    .product-info .price {
+      font-weight: 700;
+      margin-top: 15px;
+      color: #e67e22;
+      font-size: 1.1rem;
+    }
+    .btn-buy {
+      margin-top: 15px;
+      background-color: #e67e22;
+      border: none;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      user-select: none;
+    }
+    .btn-buy:hover {
+      background-color: #cf711f;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px 20px;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px){
+      header {
+        justify-content: center;
+      }
+      nav ul {
+        gap: 15px;
+        justify-content: center;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+      #model-viewer-container {
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Özeltaş Hırdavat & Mezar Taşı</h1>
+  <nav>
+    <ul>
+      <li><a href="#hero">Anasayfa</a></li>
+      <li><a href="#products">Ürünler</a></li>
+      <li><a href="#model-viewer-container">3D Model</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <h2>Kalite ve Güvenle Özeltaş Hizmetleri</h2>
+    <p>Mezar taşı ve hırdavat malzemelerinde Türkiye’nin en seçkin ve dayanıklı ürünlerini sizlere sunuyoruz. 3D modellerimizle ürünlerin detaylarını gerçek zamanlı inceleyebilir, kolayca satın alabilirsiniz.</p>
+  </section>
+
+  <section id="model-viewer-container">
+    <!-- Buraya Three.js 3D model yükleme alanı gelecek -->
+    <canvas id="three-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+  </section>
+
+  <section class="products-section" id="products">
+    <h3>Ürünlerimiz</h3>
+    <div class="products-grid">
+      <!-- Örnek ürün kartları -->
+      <article class="product-card">
+        <img src="mezar-tasi1.jpg" alt="Mezar Taşı Model 1" class="product-img" />
+        <div class="product-info">
+          <h4>Özel Mermer Mezar Taşı</h4>
+          <p>Özel tasarım mermer mezar taşı, uzun ömürlü ve dayanıklı yapısıyla. Kişiye özel işçilikle üretilir.</p>
+          <div class="price">₺2.500</div>
+          <button class="btn-buy">Satın Al</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <img src="hirdavat-vida.jpg" alt="Hırdavat Vida Seti" class="product-img" />
+        <div class="product-info">
+          <h4>Paslanmaz Vida Seti</h4>
+          <p>Yüksek kalite paslanmaz çelik vidalar, her türlü tadilat ve montaj işlerinize uygun.</p>
+          <div class="price">₺150</div>
+          <button class="btn-buy">Satın Al</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <img src="mezar-tasi2.jpg" alt="Mezar Taşı Model 2" class="product-img" />
+        <div class="product-info">
+          <h4>Granite Mezar Taşı</h4>
+          <p>Dayanıklı granit taşından özel mezar taşı modelleri, özel işçilik ve garantili hizmet.</p>
+          <div class="price">₺3.200</div>
+          <button class="btn-buy">Satın Al</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <img src="hirdavat-cekic.jpg" alt="Çekiç" class="product-img" />
+        <div class="product-info">
+          <h4>Çelik Çekiç</h4>
+          <p>Profesyonel işçilik için dayanıklı çelik çekicimiz. Ergonomik tasarım.</p>
+          <div class="price">₺200</div>
+          <button class="btn-buy">Satın Al</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="iletisim" style="margin-top: 60px;">
+    <h3>İletişim</h3>
+    <p>Adres: Konya, Türkiye</p>
+    <p>Telefon: +90 530 000 00 00</p>
+    <p>Email: info@ozeltas.com</p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Özeltaş Hırdavat & Mezar Taşı - Tüm hakları saklıdır.
+</footer>
+
+<!-- Three.js kütüphaneleri -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+  // 3D model gösterimi için temel Three.js setup
+
+  const canvas = document.getElementById('three-canvas');
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xffffff);
+
+  const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+  camera.position.set(0, 1.5, 3);
+
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: false });
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  renderer.setClearColor(0xffffff, 1);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  // Işıklar
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  directionalLight.position.set(5, 10, 7);
+  scene.add(directionalLight);
+
+  // Kontroller
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.1;
+
+  // Model yükleyici
+  const loader = new THREE.GLTFLoader();
+
+  loader.load('model.glb', function(gltf) {
+    const model = gltf.scene;
+    model.position.set(0, 0, 0);
+    scene.add(model);
+  }, undefined, function(error) {
+    console.error('Model yüklenirken hata oluştu:', error);
+  });
+
+  // Responsive canvas boyutlandırma
+  function onWindowResize() {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  }
+  window.addEventListener('resize', onWindowResize);
+  onWindowResize();
+
+  // Animasyon döngüsü
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
+
+</body>
+</html>
